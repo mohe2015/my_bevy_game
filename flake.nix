@@ -15,6 +15,7 @@
               pkgs.mold
               pkgs.nixpkgs-fmt
               pkgs.pkg-config
+              pkgs.bashInteractive
             ];
 
             # https://github.com/bevyengine/bevy/blob/latest/docs/linux_dependencies.md#nix
