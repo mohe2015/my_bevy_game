@@ -17,19 +17,18 @@
               pkgs.pkg-config
             ];
 
+            # https://github.com/bevyengine/bevy/blob/latest/docs/linux_dependencies.md#nix
             buildInputs = [
-              # https://github.com/bevyengine/bevy/blob/latest/docs/linux_dependencies.md
-              pkgs.alsaLib
               pkgs.udev
-              pkgs.wayland
-              pkgs.libxkbcommon # needed otherwise winit will crash
+              pkgs.alsa-lib
               pkgs.vulkan-loader
+
+              # wayland
+              pkgs.libxkbcommon
+              pkgs.wayland
             ];
 
-            shellInputs = buildInputs;
-            shellHook = ''
-              export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.lib.makeLibraryPath buildInputs}"
-            '';
+            LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
           };
         }
       );
