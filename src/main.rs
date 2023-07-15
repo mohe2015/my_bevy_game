@@ -17,7 +17,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         parent.spawn((TextBundle::from_section(
             "Text Example",
             TextStyle {
-                font: asset_server.load("kenney_kenney-fonts/Fonts/Kenney Future Narrow.ttf"),
+                font: asset_server.load("kenney_ui-pack/Font/kenvector_future.ttf"),
                 font_size: 30.0,
                 color: Color::WHITE,
             },
